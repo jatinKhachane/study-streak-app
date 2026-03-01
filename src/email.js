@@ -14,6 +14,7 @@ const EMAILJS_PUBLIC_KEY  = "N3V-WVtuGbp2Z61Td";   // e.g. "abcDEF123456"
 const NOTIFY_EMAIL_1 = "jatin.khachane.1997@gmail.com";
 const NOTIFY_EMAIL_2 = "Hmchandel29@gmail.com";
 
+
 let emailjsLoaded = false;
 
 function loadEmailJS() {
@@ -46,24 +47,26 @@ export async function sendUpdateEmail({ userName, otherName, action, note, strea
       : action === "skipped"
       ? `${userName} skipped today.`
       : `${userName} removed their entry.`;
-
-    await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email:  NOTIFY_EMAIL_1,
-      subject:   `Study Streak — ${actionText}`,
-      user_name: userName,
-      action:    action === "studied" ? "Studied ✅" : action === "skipped" ? "Not Studied ❌" : "Entry removed",
-      note:      note || "No note added",
-      date,
-    });
-
-    await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_email:  NOTIFY_EMAIL_2,
-      subject:   `Study Streak — ${actionText}`,
-      user_name: userName,
-      action:    action === "studied" ? "Studied ✅" : action === "skipped" ? "Not Studied ❌" : "Entry removed",
-      note:      note || "No note added",
-      date,
-    });
+    
+    if (userName === 'Jatin') {
+      await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email:  NOTIFY_EMAIL_2,
+        subject:   `Study Streak — ${actionText}`,
+        user_name: userName,
+        action:    action === "studied" ? "Studied ✅" : action === "skipped" ? "Not Studied ❌" : "Entry removed",
+        note:      note || "No note added",
+        date,
+      });
+    } else if (userName === 'Hema') {
+      await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email:  NOTIFY_EMAIL_1,
+        subject:   `Study Streak — ${actionText}`,
+        user_name: userName,
+        action:    action === "studied" ? "Studied ✅" : action === "skipped" ? "Not Studied ❌" : "Entry removed",
+        note:      note || "No note added",
+        date,
+      });
+    }
 
     console.log("[EmailJS] Email sent to both");
   } catch (err) {
