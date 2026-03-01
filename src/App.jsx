@@ -147,14 +147,6 @@ export default function App() {
               }}>{user.initial}</div>
               <span style={{ fontSize:11, fontWeight:500, color:user.accent }}>{user.name}</span>
             </div>
-
-            {/* Switch */}
-            <button onClick={() => setUser(null)} style={{
-              background:T.hover, border:`1px solid ${T.border}`,
-              borderRadius:8, padding:"6px 9px",
-              cursor:"pointer", color:T.sub, fontSize:11,
-              fontFamily:"'Sora', sans-serif",
-            }}>Switch</button>
           </div>
         </div>
 
