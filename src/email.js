@@ -12,7 +12,7 @@ const EMAILJS_TEMPLATE_ID = "template_0bv8lzm";  // e.g. "template_xyz789"
 const EMAILJS_PUBLIC_KEY  = "N3V-WVtuGbp2Z61Td";   // e.g. "abcDEF123456"
 
 const NOTIFY_EMAIL_1 = "jatin.khachane.1997@gmail.com";
-const NOTIFY_EMAIL_2 = "jatinkhachane@gmail.com";
+const NOTIFY_EMAIL_2 = "Hmchandel29@gmail.com";
 
 let emailjsLoaded = false;
 
